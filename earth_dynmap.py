@@ -7,6 +7,7 @@ import datetime
 import cv2
 from dynmap_utils import crop, pil_to_cv2
 
+img_dir = "./images"
 
 base_url = "https://map-s5.minecraftserver.jp/"
 world = "world_SW_3"
@@ -25,15 +26,17 @@ tm = time_machine.TimeMachine(dm)
 def timerapse_dynmap():
     # 画像保存の設定
     now = datetime.datetime.now()
-    img_dir = "./images/{0:%Y%m%d}".format(now)
-    if not os.path.exists(img_dir):
-        os.mkdir(img_dir)
+    imgs = img_dir + "/{0:%Y%m%d}".format(now)
+    if not os.path.exists(imgs):
+        os.mkdir(imgs)
 
     print("{0:%Y%m%d_%H%M}.png".format(now))
-    dest = img_dir + '/dyn_earth_{0:%Y%m%d_%H%M}.png'.format(now)
+    dest = imgs + '/dyn_earth_{0:%Y%m%d_%H%M}.png'.format(now)
 
     img = tm.capture_single(dm_map, m_loc.to_tile_location(zoom), size)
     cv2.imwrite(dest, crop(pil_to_cv2(img)))
 
 if __name__ == '__main__':
+    if not os.path.exists(img_dir):
+        os.mkdir(img_dir)
     timerapse_dynmap()
