@@ -3,8 +3,6 @@ chardet==3.0.4
 dynmap-timemachine==0.9.5
 future==0.18.2
 idna==2.9
-imageio==2.8.0
-imageio-ffmpeg==0.4.2
 numpy==1.18.5
 oauthlib==3.1.0
 opencv-python==4.2.0.34
