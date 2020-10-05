@@ -3,7 +3,5 @@ get dynmap of [minecraft earth map(1:000 scale)](https://earth.motfe.net/)
 
 # install library
 `pip install -r requirements.txt`
+`pip install git+https://github.com/yudegoma/minecraft-dynmap-timemachine`
 
-## change library code
-refer:
-https://github.com/martinsik/minecraft-dynmap-timemachine/pull/7/files
